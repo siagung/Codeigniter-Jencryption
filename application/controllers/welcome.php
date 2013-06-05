@@ -17,6 +17,7 @@ class Welcome extends CI_Controller {
 
     public function index()
     {
+        //used to generate random string using to make jcryption key
         $this->data['sesstoken'] = random_string('alnum', 16);
         $this->load->view('welcome_message',$this->data);
     }

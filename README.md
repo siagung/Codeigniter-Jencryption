@@ -1,7 +1,7 @@
 codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption
 ========================================================================
 
-codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption is an extended `jCryption` library to use in encrytion data on CodeIgniter applications.
+codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption is an extended `jCryption` [jcryption.org](http://www.jeasyui.com) library to use in encrytion data on CodeIgniter applications.
 
 created a library Jencryption extends jcryption.php 
 
@@ -43,10 +43,10 @@ created a library Jencryption extends jcryption.php
 
 ## Usage
 
-1. Drag the **jencryption.php (library), jcryption (folder)** file into CI application/libraries folder
+1. Drag the **jencryption.php (library), jcryption (folder)** file into CI `application/libraries` folder
 2. Drag the **assets (folder)** file into CI root folder
-3. Set $config['encryption_key'] = 'mysuperecryptionkey' on application/config/config.php file
-4. Create Multiple session instance using for jencryption add this to CI application/config/config.php :
+3. Set **$config['encryption_key'] = 'mysuperecryptionkey'** on `application/config/config.php` file
+4. Create Multiple session instance using for `jencryption` add this to CI `application/config/config.php` :
 
   $config['sess_jencrypt'] = array(
    'sess_cookie_name'	=> 'jencryptcicookie',
@@ -56,7 +56,7 @@ created a library Jencryption extends jcryption.php
    'sess_use_database'	=> FALSE
   );
 
-5. I used csrf_protection active so add some change to CI application/config/config.php file :
+5. I used `csrf_protection` active so add some change to CI `application/config/config.php` file :
 
       $config['csrf_protection'] = TRUE;
       $config['csrf_token_name'] = 'csrf_jencrypt_name';
@@ -83,12 +83,10 @@ created a library Jencryption extends jcryption.php
     $this->load->helper(array('url','string','form'));
     $this->load->library('jencryption');
 
-7. add jcryption.js to views script:
-
-    <script src="<?php echo base_url(); ?>assets/js/jquery.jcryption.js"></script> to view file
+7. add `jcryption.js` to views script
 
 
-## SAMPLE Controller and Views
+## Sample Controller and Views
 
 Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
 

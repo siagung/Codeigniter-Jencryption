@@ -1,7 +1,7 @@
-codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption
-========================================================================
+Codeigniter $_POST/$_GET data encryption using jCryption
+========================================================
 
-Codeigniter library for encrytion string POST encryption using jCryption JavaScript dataencryption is an extended `jCryption` [jcryption.org](http://www.jcryption.org).
+Codeigniter library for encrypting $_POST/$_GET data using jCryption JavaScript data encryption is an extended `jcryption.php` [jcryption.org](http://www.jcryption.org).
 
 **use multiple session and csrf_protection**
 
@@ -66,7 +66,7 @@ Codeigniter library for encrytion string POST encryption using jCryption JavaScr
       $config['csrf_token_name'] = 'csrf_jencrypt_name';
       $config['csrf_cookie_name'] = 'csrf_jencrypt_cookie_name';
     ```
-     to play with CI csrf_protection on jquery.jcryption.js i add new parameter name "token" :
+     to play with CI csrf_protection on `jquery.jcryption.js` i add new parameter name **token** :
 
      ```js
       base.authenticate = function(token,success, failure) {...}
@@ -97,13 +97,12 @@ Codeigniter library for encrytion string POST encryption using jCryption JavaScr
     $this->load->library('jencryption');
     ```
 
-7. add `jcryption.js` to views script
+7. add `jcryption.js` to views script 
 
 
 ## Sample Controller and Views
 
-Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
-
+this repo include sample Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
 
 nb: to remove index.php from url drag .htaccess to CI `root` folder and edit `application/config/config.php`
 

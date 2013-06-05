@@ -1,4 +1,4 @@
-Codeigniter $_POST/$_GET data encryption using jCryption
+Codeigniter $_POST/$_GET data encryption using jCryption.js
 ========================================================
 
 Codeigniter library for encrypting $_POST/$_GET data using jCryption JavaScript data encryption is an extended `jcryption.php` [jcryption.org](http://www.jcryption.org).
@@ -69,19 +69,19 @@ Codeigniter library for encrypting $_POST/$_GET data using jCryption JavaScript 
      to play with CI csrf_protection on `jquery.jcryption.js` i add new parameter name **token** :
 
      ```js
-      base.authenticate = function(token,success, failure) {...}
+      base.authenticate = function(**token**,success, failure) {...}
       ```
       ```js
-      $.jCryption.authenticate = function(AESEncryptionKey, publicKeyURL, handshakeURL,token, success, failure){...}
+      $.jCryption.authenticate = function(AESEncryptionKey, publicKeyURL, handshakeURL,**token**, success, failure){...}
      ```
      ```js
-       $.jCryption.handshake = function(url, key,token, callback) {
+       $.jCryption.handshake = function(url, key,**token**, callback) {
           $.ajax({
               url: url,
               dataType: "json",
               type: "POST",
               data: {
-                  key: key, csrf_jencrypt_name:token
+                  key: key, csrf_jencrypt_name:token // add csrf_jencrypt_name from CI application/config/config.php
               },
               success: function(response) {
                   callback.call(this, response);

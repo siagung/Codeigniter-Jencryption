@@ -47,7 +47,7 @@ created a library Jencryption extends jcryption.php
 2. Drag the **assets (folder)** file into CI root folder
 3. Set **$config['encryption_key'] = 'mysuperecryptionkey'** on `application/config/config.php` file
 4. Create Multiple session instance using for `jencryption` add this to CI `application/config/config.php` :
-
+```php
   $config['sess_jencrypt'] = array(
    'sess_cookie_name'	=> 'jencryptcicookie',
    'sess_expire_on_close'	=> TRUE,
@@ -55,16 +55,18 @@ created a library Jencryption extends jcryption.php
    'sess_expiration' => 900,
    'sess_use_database'	=> FALSE
   );
-
+```
 5. I used `csrf_protection` active so add some change to CI `application/config/config.php` file :
 
+    ```php
       $config['csrf_protection'] = TRUE;
       $config['csrf_token_name'] = 'csrf_jencrypt_name';
       $config['csrf_cookie_name'] = 'csrf_jencrypt_cookie_name';
-
+```
      to play with CI csrf_protection on jquery.jcryption.js i add new parameter name "token" :
       ~ base.authenticate = function(token,success, failure) {...}
       ~ $.jCryption.authenticate = function(AESEncryptionKey, publicKeyURL, handshakeURL,token, success, failure){...}
+     ```php
       ~ $.jCryption.handshake = function(url, key,token, callback) {
           $.ajax({
               url: url,
@@ -78,10 +80,13 @@ created a library Jencryption extends jcryption.php
               }
           });
       };
+     ```
 
 6. add in application crontroller:
+    ```php
     $this->load->helper(array('url','string','form'));
     $this->load->library('jencryption');
+    ```
 
 7. add `jcryption.js` to views script
 

@@ -111,6 +111,7 @@
         var $loader = $('<img src="<?php echo base_url();?>assets/images/loading.gif" alt="Loading..." title="Loading..." style="margin-right:15px;" />');
         $(function () {
             var token = $('input[name=csrf_jencrypt_name]').val();
+           // var hashObj = new jsSHA('mySuperPassworD', "ASCII");
             var hashObj = new jsSHA('<?php  echo $sesstoken;?>', "ASCII");
             var password = hashObj.getHash("SHA-512", "HEX");
 

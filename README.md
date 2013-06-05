@@ -1,9 +1,9 @@
 codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption
 ========================================================================
 
-codeigniter string POST encryption using jCryption JavaScript dataencryption is an extended `jCryption` [jcryption.org](http://www.jcryption.org) library to use in encrytion data on CodeIgniter applications.
+Codeigniter library for encrytion string POST encryption using jCryption JavaScript dataencryption is an extended `jCryption` [jcryption.org](http://www.jcryption.org).
 
-created a library Jencryption extends jcryption.php use multiple session and csrf_protection
+**use multiple session and csrf_protection**
 
 ## Synopsis
 
@@ -104,5 +104,12 @@ created a library Jencryption extends jcryption.php use multiple session and csr
 
 Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
 
+
+nb: to remove index.php from url drag .htaccess to CI `root` folder and edit `application/config/config.php`
+
+```php
+$config['base_url'] = 'http://urlhttp.local/jencryption/';
+$config['index_page'] = '';
+```
 
 * Have a nice Day :)

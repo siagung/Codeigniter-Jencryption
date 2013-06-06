@@ -14,7 +14,7 @@ class Jencryption extends jcryption
     public function __construct()
     {
         $this->CI =& get_instance();
-        $this->CI->load->library('session',$this->CI->config->item('sess_jencrypt'),'jencryptcicookie');
+        $this->CI->load->library('MY_Session',$this->CI->config->item('sess_jencrypt'),'jencryptcicookie');
     }
 
     public function get_Keypair()

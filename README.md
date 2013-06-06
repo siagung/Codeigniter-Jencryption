@@ -1,9 +1,9 @@
-codeigniter-string-encryption-using-jCryption-JavaScript-data-encryption
-========================================================================
+Codeigniter $_POST/$_GET data encryption using jCryption.js
+===========================================================
 
-codeigniter string POST encryption using jCryption JavaScript dataencryption is an extended `jCryption` [jcryption.org](http://www.jcryption.org) library to use in encrytion data on CodeIgniter applications.
+Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption JavaScript data encryption is an extended `jcryption.php` [jcryption.org](http://www.jcryption.org).
 
-created a library Jencryption extends jcryption.php use multiple session and csrf_protection
+**use multiple session and csrf_protection**
 
 ## Synopsis
 
@@ -52,13 +52,19 @@ created a library Jencryption extends jcryption.php use multiple session and csr
 
     ```php
     $config['sess_jencrypt'] = array(
-                        'sess_cookie_name'	=> 'jencryptcicookie',
-                        'sess_expire_on_close'	=> TRUE,
-                        'sess_encrypt_cookie'	=> TRUE,
-                        'sess_expiration' => 900,
-                        'sess_use_database'	=> FALSE
+                'sess_cookie_name'	=> 'jencryptcicookie',
+                'sess_expire_on_close'	=> TRUE,
+                'sess_encrypt_cookie'	=> TRUE,
+                'sess_expiration' => 900,
+                'sess_use_database'	=> TRUE, // optional used database to save jcryption session data
+                'sess_table_name'	=> 'jencrypt_session' //database table name
     );
     ```
+
+    i have problem with default CI session library when  saving Session Data to a Database, so i add some modification to CI `Session` library
+    named it `MY_Session` on `application/libraries`
+
+
 5. I used `csrf_protection` active so add some change to CI `application/config/config.php` file :
 
     ```php
@@ -66,7 +72,7 @@ created a library Jencryption extends jcryption.php use multiple session and csr
       $config['csrf_token_name'] = 'csrf_jencrypt_name';
       $config['csrf_cookie_name'] = 'csrf_jencrypt_cookie_name';
     ```
-     to play with CI csrf_protection on jquery.jcryption.js i add new parameter name "token" :
+     to play with CI csrf_protection on `jquery.jcryption.js` i add new parameter name **token** :
 
      ```js
       base.authenticate = function(token,success, failure) {...}
@@ -81,7 +87,7 @@ created a library Jencryption extends jcryption.php use multiple session and csr
               dataType: "json",
               type: "POST",
               data: {
-                  key: key, csrf_jencrypt_name:token
+                  key: key, csrf_jencrypt_name:token // to play with CI csrf_protection add csrf_jencrypt_name from CI application/config/config.php
               },
               success: function(response) {
                   callback.call(this, response);
@@ -102,7 +108,13 @@ created a library Jencryption extends jcryption.php use multiple session and csr
 
 ## Sample Controller and Views
 
-Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
+this repo include sample Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
 
+nb: to remove index.php from url drag .htaccess to CI `root` folder and edit `application/config/config.php`
+
+```php
+$config['base_url'] = 'http://urlhttp.local/jencryption/';
+$config['index_page'] = '';
+```
 
 * Have a nice Day :)

@@ -13,6 +13,7 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('url','string','form'));
         $this->load->library('jencryption');
+        $this->data = null;
     }
 
     public function index()

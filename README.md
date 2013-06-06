@@ -1,7 +1,7 @@
 Codeigniter $_POST/$_GET data encryption using jCryption.js
 ===========================================================
 
-Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption JavaScript data encryption is an extended `jcryption.php` [jcryption.org](http://www.jcryption.org).
+Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption JavaScript data encryption is an extends of a great jquery plugins `jcryption.php` [jcryption.org](http://www.jcryption.org).
 
 **use multiple session and csrf_protection**
 
@@ -15,10 +15,12 @@ Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption Jav
         parent::__construct();
         $this->load->helper(array('url','string','form'));
         $this->load->library('jencryption');
+        $this->data = null;
     }
 
     public function index()
     {
+        //generate random key for jcryption hash
         $this->data['sesstoken'] = random_string('alnum', 16);
         $this->load->view('welcome_message',$this->data);
     }
@@ -61,7 +63,7 @@ Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption Jav
     );
     ```
 
-    i have problem with default CI session library when  saving Session Data to a Database, so i add some modification to CI `Session` library
+    i got problems with default CI session library when saving jcryption Session Data to a Database, so i add some modification to CI `Session` library
     named it `MY_Session` on `application/libraries`
 
 
@@ -96,21 +98,23 @@ Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption Jav
       };
      ```
 
-6. add in application crontroller:
+6. Add in application controller:
 
     ```php
     $this->load->helper(array('url','string','form'));
     $this->load->library('jencryption');
     ```
 
-7. add `jcryption.js` to views script
+7. Add `jcryption.js` to views script
 
 
 ## Sample Controller and Views
 
 this repo include sample Controller (welcome.php) and Views (welcome_message.php) modified from string encryption on example folder in jcryption-master download
 
-nb: to remove index.php from url drag .htaccess to CI `root` folder and edit `application/config/config.php`
+nb: 
+ set `database.php` in `application/config` folder if use database for saving session daata
+ to remove index.php from url drag .htaccess to CI `root` folder and edit `application/config/config.php`
 
 ```php
 $config['base_url'] = 'http://urlhttp.local/jencryption/';

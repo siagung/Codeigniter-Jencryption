@@ -59,7 +59,7 @@ Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption Jav
                 'sess_encrypt_cookie'	=> TRUE,
                 'sess_expiration' => 900,
                 'sess_use_database'	=> TRUE, // optional used database to save jcryption session data
-                'sess_table_name'	=> 'jencrypt_session' //database table name
+                'sess_table_name'	=> 'jencrypt_session' //database tabel name
     );
     ```
 

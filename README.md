@@ -45,7 +45,7 @@ Codeigniter (2.1.3) library for encrypting $_POST/$_GET data using jCryption Jav
 
 ## Usage
 
-1. Drag the **jencryption.php (library), jcryption (folder)** file into CI `application/libraries` folder
+1. Drag the **jencryption.php (library),MY_Session.php (library), jcryption (folder)** file into CI `application/libraries` folder
 2. Drag the **assets (folder)** file into CI `root` folder
 3. Set **$config['encryption_key'] = 'mysuperecryptionkey'** on `application/config/config.php` file
 4. Create Multiple session instance using for `jencryption` add this to CI `application/config/config.php` :
